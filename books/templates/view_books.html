@@ -1,12 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>View Books</title>
-</head>
-<body>
-    <h1>Available Books</h1>
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container mx-auto px-4 py-8">
+    <h1 class="text-2xl font-bold mb-4>
     <ul>
         {% for book in books %}
             <li>
@@ -31,5 +28,7 @@
             </li>
         {% endfor %}
     </ul>
-</body>
-</html>
+</h1>
+</div>  
+
+{% endblock %}
