@@ -7,10 +7,10 @@
 </head>
 <body>
     <h1>Welcome to the Books App</h1>
-    <button onclick="location.href = ' {% url 'books:add_books' %} '">Add Books</button>
-    <button>View Books</button>
+    <button onclick="location.href='{% url 'books:add_books' %}';">Add Books</button>
+    <button onclick="location.href='{% url 'books:view_books' %}';">View Books</button>
 
     {% load static %}
-<script src="http://127.0.0.1:8000/__reload__/reload.js"></script>
+    <script src="http://127.0.0.1:8000/__reload__/reload.js"></script>
 </body>
 </html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Books</title>
+</head>
+<body>
+    <h1>Available Books</h1>
+    <ul>
+        {% for book in books %}
+            <li>
+                <h3>{{ book.name }}</h3>
+                <p>Author: {{ book.author }}</p>
+                <p>Condition: {{ book.condition }}/5</p>
+                <p>Status: 
+                    {% if book.is_rented %}
+                        Rented
+                    {% else %}
+                        Available
+                    {% endif %}
+                </p>
+                {% if not book.is_rented %}
+                    <form method="post" action="{% url 'books:rent_book' book.id %}">
+                        {% csrf_token %}
+                        <button type="submit">Rent This Book</button>
+                    </form>
+                {% else %}
+                    <p>This book is currently rented.</p>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
