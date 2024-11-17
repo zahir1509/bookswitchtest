@@ -31,3 +31,5 @@ def rent_book(request, book_id):
             book.save()
             return redirect('books:view_books')  # Redirect back to the book list
     return redirect('books:view_books')
+
+#test comment
