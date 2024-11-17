@@ -5,4 +5,5 @@ app_name = "books"
 
 urlpatterns = [
     path('', views.home, name='home'),
+    path('add-books/', views.add_books, name='add_books'),
 ]

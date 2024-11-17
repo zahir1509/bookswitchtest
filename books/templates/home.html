@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1>Welcome to the Books App</h1>
-    <button>Add Books</button>
+    <button onclick="location.href = ' {% url 'books:add_books' %} '">Add Books</button>
     <button>View Books</button>
 
     {% load static %}
