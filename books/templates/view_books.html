@@ -2,33 +2,35 @@
 
 {% block content %}
 
-<div class="container mx-auto px-4 py-8">
-    <h1 class="text-2xl font-bold mb-4>
-    <ul>
-        {% for book in books %}
-            <li>
-                <h3>{{ book.name }}</h3>
-                <p>Author: {{ book.author }}</p>
-                <p>Condition: {{ book.condition }}/5</p>
-                <p>Status: 
-                    {% if book.is_rented %}
-                        Rented
-                    {% else %}
-                        Available
-                    {% endif %}
-                </p>
-                {% if not book.is_rented %}
-                    <form method="post" action="{% url 'books:rent_book' book.id %}">
-                        {% csrf_token %}
-                        <button type="submit">Rent This Book</button>
-                    </form>
-                {% else %}
-                    <p>This book is currently rented.</p>
-                {% endif %}
-            </li>
-        {% endfor %}
-    </ul>
-</h1>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-12">
+            <ul class="list-group">
+                {% for book in books %}
+                    <li class="list-group-item">
+                        <h3>{{ book.name }}</h3>
+                        <p><strong>Author:</strong> {{ book.author }}</p>
+                        <p><strong>Condition:</strong> {{ book.condition }}/5</p>
+                        <p><strong>Status:</strong> 
+                            {% if book.isrented %}
+                                <span class="badge bg-danger">Rented</span>
+                            {% else %}
+                                <span class="badge bg-success">Available</span>
+                            {% endif %}
+                        </p>
+                        {% if not book.isrented %}
+                            <form method="post" action="{% url 'books:rent_book' book.id %}">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-primary">Rent This Book</button>
+                            </form>
+                        {% else %}
+                            <p class="text-muted">This book is currently rented.</p>
+                        {% endif %}
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
 </div>  
 
 {% endblock %}
